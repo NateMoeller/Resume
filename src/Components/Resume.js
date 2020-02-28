@@ -39,8 +39,8 @@ class Resume extends Component {
           <h3>University of Minnesota - Institute of Health Informatics</h3>
           <div>
             <p className="info">Research assistant<span>&bull;</span> <em className="date">Feburary 2015 - May 2016</em></p>
-            <p>While going to graduate school at the University of Minnesota, I worked as a research assistent to Professor <a href="https://healthinformatics.umn.edu/bio/ihi-faculty-staff/genevieve-melton-meaux" target="_blank" rel="noopener noreferrer">Genevieve Melton-Meaux</a>. I worked on a team of graduate students and surgeons to develop machine learning methods to detect post surgical complications. 
-              My main responsibilities were to work with surgeons to understand what data we could use to predict a post surgical complication (Ex: UTI), 
+            <p>While receiving my graduate degree at the University of Minnesota, I worked as a research assistent to Professor <a href="https://healthinformatics.umn.edu/bio/ihi-faculty-staff/genevieve-melton-meaux" target="_blank" rel="noopener noreferrer">Genevieve Melton-Meaux</a>. I worked on a team of graduate students and surgeons to develop machine learning methods to detect post-surgical complications. 
+              My main responsibilities were to work with surgeons to understand what data we could use to predict a post-surgical complication (Ex: UTI), 
               and then use this information to extract, clean, and format the EHR data to use for machine learning purposes. 
               I also worked on developing the penalized regression algorithm we used to predict the surgical complication.</p>
           </div>
@@ -78,8 +78,8 @@ class Resume extends Component {
           <h3>University of Wisconsin - Madison</h3>
           <div>
             <p className="info">Research assistant<span>&bull;</span> <em className="date">July 2012 - June 2014</em></p>
-            <p>While going to undergraduate school at the University of Wisconsin - Madison, I worked as a research assistant to 
-              <a href="http://pages.cs.wisc.edu/~suman/">Professor Suman Banerjee</a>. I worked on a research project called Wireless@Home, which focused on researching factors that that degrade WiFi network performance in home environments. 
+            <p>While receiving my undergraduate degree at the University of Wisconsin - Madison, I worked as a research assistant to <a href="http://pages.cs.wisc.edu/~suman/">Professor Suman Banerjee</a>. 
+              I worked on a research project called Wireless@Home, which focused on researching factors that that degrade WiFi network performance in home environments. 
               I developed a web based console in javascript and python which displayed the data we collected in dynamic charts and heat maps.</p>
           </div>
         </div>

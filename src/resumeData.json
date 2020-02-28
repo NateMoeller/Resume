@@ -1,7 +1,7 @@
 {
   "main": {
     "name":"Nathan Moeller",
-    "description": "I am a software engineer currently working for IBM in San Jose. I am originally from the midwest, where I attended school at the University of Wisconsin - Madison and the University of Minnesota - Twin Cities.",
+    "description": "I am a software engineer currently working for IBM in San Jose, CA. I am originally from the midwest, where I attended school at the University of Wisconsin - Madison and the University of Minnesota - Twin Cities.",
     "image":"profilepic2.jpg",
     "bio": "Software engineer and soccer player. Shoot me an email to find out more about me!",
     "contactmessage":"Here is where you should write your message to readers to have them get in contact with you.",
@@ -14,7 +14,7 @@
       "zip": "95126"
     },
     "website": "http://www.nathanmoeller.com",
-    "resumedownload":"http://www.nathanmoeller.com/resume",
+    "resumedownload":"http://www.nathanmoeller.com/resume/NathanMoellersCV_20200223.pdf",
     "social":[
       {
         "name":"linkedin",
@@ -51,7 +51,7 @@
       "name": "Bounty Streamer",
       "years": "May 2018 - May 2019",
       "link": "https://bountystreamer.gg",
-      "description": "Bounty Streamer is a web application designed for twith streaming where viewers can incentivize streamers to complete in game challenges for real money. We developed this project as a team a 3 and used a Java Spring backend, React frontend and PayPal/Twitch/AWS REST APIs and services."
+      "description": "Bounty Streamer is a web application designed for twith streaming where viewers can incentivize streamers to complete in game challenges for real money. We developed this project as a team a three and used a Java Spring backend, React frontend and PayPal/Twitch/AWS REST APIs and services."
     },
     {
       "name": "Word Affects",

@@ -1,6 +1,19 @@
 import React, { Component } from 'react';
 
 class Resume extends Component {
+  getSplunkSection() {
+    return (
+      <div className="workItem" key='Splunk'>
+        <div className="companyLogo">
+          <img src={`images/ibm_logo_2.jpeg`} alt="logo" width="56" height="56" />
+        </div>
+        <div>
+          <h3>Splunk</h3>
+        </div>
+      </div>
+    );
+  }
+
   getIBMSection() {
     return (
       <div className="workItem" key='IBM'>

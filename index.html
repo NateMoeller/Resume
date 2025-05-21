@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nathan Moeller</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #f5f5f5;
+            background-color: #0a0e17;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Starry Night Background with Parallax */
+        .stars-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        #stars {
+            width: 1px;
+            height: 1px;
+            background: transparent;
+            box-shadow: 1907px 1575px #FFF, 893px 268px #FFF, 1819px 666px #FFF, 366px 1985px #FFF, 1736px 1062px #FFF, 1124px 45px #FFF, 905px 1674px #FFF, 1570px 711px #FFF, 255px 1747px #FFF, 147px 1032px #FFF, 865px 1813px #FFF, 1721px 1461px #FFF, 202px 724px #FFF, 1860px 812px #FFF, 634px 1410px #FFF, 927px 1264px #FFF, 1648px 620px #FFF, 1915px 1309px #FFF, 731px 778px #FFF, 91px 1185px #FFF, 829px 1003px #FFF, 174px 1784px #FFF, 1094px 1874px #FFF, 1464px 484px #FFF, 1639px 1717px #FFF, 959px 573px #FFF, 1686px 1287px #FFF, 906px 356px #FFF, 970px 499px #FFF, 626px 890px #FFF, 1344px 1070px #FFF, 1351px 544px #FFF, 708px 68px #FFF, 1870px 130px #FFF, 556px 1270px #FFF, 1432px 618px #FFF, 769px 673px #FFF, 1289px 1410px #FFF, 1499px 1969px #FFF, 749px 1163px #FFF, 1198px 198px #FFF, 399px 133px #FFF, 1856px 1280px #FFF, 904px 194px #FFF, 973px 1107px #FFF, 1371px 1785px #FFF, 989px 1835px #FFF, 1043px 1517px #FFF, 787px 916px #FFF, 1635px 1155px #FFF, 752px 524px #FFF, 1926px 1279px #FFF, 1052px 1163px #FFF, 719px 1963px #FFF, 786px 519px #FFF, 1440px 500px #FFF, 156px 1265px #FFF, 1691px 429px #FFF, 1349px 1474px #FFF, 736px 459px #FFF, 248px 1678px #FFF, 1136px 510px #FFF, 1317px 10px #FFF, 1209px 1323px #FFF, 54px 469px #FFF, 730px 1939px #FFF, 960px 23px #FFF, 112px 941px #FFF, 1852px 1522px #FFF, 1993px 1972px #FFF, 265px 129px #FFF, 222px 1897px #FFF, 1766px 1804px #FFF, 1530px 1786px #FFF, 1045px 432px #FFF, 1916px 1980px #FFF, 309px 1780px #FFF, 1420px 559px #FFF, 1708px 103px #FFF, 324px 1407px #FFF, 1175px 943px #FFF, 80px 1521px #FFF, 1295px 1670px #FFF, 1856px 607px #FFF, 1220px 1176px #FFF, 1630px 1649px #FFF, 1906px 1550px #FFF, 1319px 1729px #FFF, 288px 1584px #FFF, 1173px 1757px #FFF, 1479px 496px #FFF, 864px 1314px #FFF, 1332px 351px #FFF,
+            1907px 575px #FFF, 893px 1268px #FFF, 1819px 1666px #FFF, 366px 985px #FFF, 1736px 2062px #FFF, 1124px 2045px #FFF, 905px 674px #FFF, 1570px 1711px #FFF, 255px 747px #FFF, 147px 2032px #FFF, 865px 813px #FFF, 1721px 461px #FFF, 202px 1724px #FFF, 1860px 1812px #FFF, 634px 410px #FFF, 927px 264px #FFF, 1648px 1620px #FFF, 1915px 309px #FFF, 731px 1778px #FFF, 91px 185px #FFF, 829px 2003px #FFF, 174px 784px #FFF, 1094px 874px #FFF, 1464px 1484px #FFF, 1639px 717px #FFF, 959px 1573px #FFF, 1686px 287px #FFF, 906px 1356px #FFF, 970px 1499px #FFF, 626px 1890px #FFF, 1344px 2070px #FFF, 1351px 1544px #FFF, 708px 2068px #FFF, 1870px 2130px #FFF, 556px 270px #FFF, 1432px 1618px #FFF, 769px 1673px #FFF, 1289px 410px #FFF, 1499px 969px #FFF, 749px 163px #FFF, 1198px 2198px #FFF, 399px 2133px #FFF, 1856px 280px #FFF, 904px 2194px #FFF, 973px 1107px #FFF, 1371px 785px #FFF, 989px 835px #FFF, 1043px 517px #FFF, 787px 1916px #FFF, 1635px 155px #FFF, 752px 1524px #FFF, 1926px 279px #FFF, 1052px 163px #FFF, 719px 963px #FFF, 786px 1519px #FFF, 1440px 1500px #FFF, 156px 265px #FFF, 1691px 1429px #FFF, 1349px 474px #FFF, 736px 1459px #FFF, 248px 678px #FFF, 1136px 1510px #FFF, 1317px 2010px #FFF, 1209px 323px #FFF, 54px 1469px #FFF, 730px 939px #FFF, 960px 2023px #FFF, 112px 1941px #FFF, 1852px 522px #FFF, 1993px 972px #FFF, 265px 2129px #FFF, 222px 897px #FFF, 1766px 804px #FFF, 1530px 786px #FFF, 1045px 1432px #FFF, 1916px 980px #FFF, 309px 780px #FFF, 1420px 1559px #FFF, 1708px 2103px #FFF, 324px 407px #FFF, 1175px 1943px #FFF, 80px 521px #FFF, 1295px 670px #FFF, 1856px 1607px #FFF, 1220px 176px #FFF, 1630px 649px #FFF, 1906px 550px #FFF, 1319px 729px #FFF, 288px 584px #FFF, 1173px 757px #FFF, 1479px 1496px #FFF, 864px 314px #FFF, 1332px 1351px #FFF,
+            1907px 175px #FFF, 893px 2268px #FFF, 1819px 666px #FFF, 366px 985px #FFF, 1736px 62px #FFF, 1124px 445px #FFF, 905px 674px #FFF, 1570px 111px #FFF, 255px 1747px #FFF, 147px 32px #FFF, 865px 1813px #FFF, 1721px 1461px #FFF, 202px 1724px #FFF, 1860px 812px #FFF, 634px 1410px #FFF, 927px 1264px #FFF, 1648px 1620px #FFF, 1915px 309px #FFF, 731px 1778px #FFF, 91px 185px #FFF, 829px 2003px #FFF, 174px 784px #FFF, 1094px 874px #FFF, 1464px 1484px #FFF, 1639px 717px #FFF, 959px 1573px #FFF, 1686px 287px #FFF, 906px 1356px #FFF, 970px 1499px #FFF, 626px 1890px #FFF, 1344px 2070px #FFF, 1351px 1544px #FFF, 708px 2068px #FFF, 1870px 2130px #FFF, 556px 270px #FFF, 1432px 1618px #FFF, 769px 1673px #FFF, 1289px 410px #FFF, 1499px 969px #FFF, 749px 163px #FFF, 1198px 2198px #FFF, 399px 2133px #FFF, 1856px 280px #FFF, 904px 2194px #FFF, 973px 1107px #FFF, 1371px 785px #FFF, 989px 835px #FFF, 1043px 517px #FFF, 787px 1916px #FFF, 1635px 155px #FFF, 752px 1524px #FFF, 1926px 279px #FFF, 1052px 163px #FFF, 719px 963px #FFF, 786px 1519px #FFF, 1440px 1500px #FFF, 156px 265px #FFF, 1691px 1429px #FFF, 1349px 474px #FFF, 736px 1459px #FFF, 248px 678px #FFF, 1136px 1510px #FFF, 1317px 2010px #FFF, 1209px 323px #FFF, 54px 1469px #FFF, 730px 939px #FFF, 960px 2023px #FFF, 112px 1941px #FFF, 1852px 522px #FFF, 1993px 972px #FFF, 265px 2129px #FFF, 222px 897px #FFF, 1766px 804px #FFF, 1530px 786px #FFF, 1045px 1432px #FFF, 1916px 980px #FFF, 309px 780px #FFF, 1420px 1559px #FFF, 1708px 2103px #FFF, 324px 407px #FFF, 1175px 1943px #FFF, 80px 521px #FFF, 1295px 670px #FFF, 1856px 1607px #FFF, 1220px 176px #FFF, 1630px 649px #FFF, 1906px 550px #FFF, 1319px 729px #FFF, 288px 584px #FFF, 1173px 757px #FFF, 1479px 1496px #FFF, 864px 314px #FFF, 1332px 1351px #FFF;
+            animation: animateStars 50s linear infinite;
+        }
+
+        #stars2 {
+            width: 2px;
+            height: 2px;
+            background: transparent;
+            box-shadow: 1439px 989px #FFF, 1920px 1613px #FFF, 1062px 1754px #FFF, 1120px 1100px #FFF, 1140px 1095px #FFF, 374px 1808px #FFF, 1998px 1269px #FFF, 1086px 1363px #FFF, 1337px 1931px #FFF, 1399px 1485px #FFF, 929px 1304px #FFF, 1907px 1326px #FFF, 1737px 1330px #FFF, 1051px 1351px #FFF, 1707px 1203px #FFF, 1246px 1485px #FFF, 1192px 1331px #FFF, 1319px 1627px #FFF, 1089px 934px #FFF, 1254px 1793px #FFF, 1608px 641px #FFF, 1342px 1590px #FFF, 1729px 1433px #FFF, 1889px 1454px #FFF, 1068px 1051px #FFF, 1639px 1559px #FFF, 1607px 1847px #FFF, 1938px 1573px #FFF, 1639px 1327px #FFF, 1986px 1160px #FFF, 1842px 1511px #FFF, 1459px 1104px #FFF, 1396px 1454px #FFF, 1673px 1910px #FFF, 1091px 1262px #FFF, 1613px 1232px #FFF, 1182px 1478px #FFF, 1845px 1839px #FFF, 1303px 1827px #FFF, 1215px 1904px #FFF,
+            1439px 1989px #FFF, 1920px 613px #FFF, 1062px 754px #FFF, 1120px 2100px #FFF, 1140px 2095px #FFF, 374px 808px #FFF, 1998px 2269px #FFF, 1086px 2363px #FFF, 1337px 931px #FFF, 1399px 485px #FFF, 929px 304px #FFF, 1907px 326px #FFF, 1737px 330px #FFF, 1051px 351px #FFF, 1707px 203px #FFF, 1246px 485px #FFF, 1192px 331px #FFF, 1319px 627px #FFF, 1089px 1934px #FFF, 1254px 793px #FFF, 1608px 1641px #FFF, 1342px 590px #FFF, 1729px 433px #FFF, 1889px 454px #FFF, 1068px 2051px #FFF, 1639px 559px #FFF, 1607px 847px #FFF, 1938px 573px #FFF, 1639px 327px #FFF, 1986px 160px #FFF, 1842px 511px #FFF, 1459px 1104px #FFF, 1396px 454px #FFF, 1673px 910px #FFF, 1091px 262px #FFF, 1613px 232px #FFF, 1182px 478px #FFF, 1845px 839px #FFF, 1303px 827px #FFF, 1215px 904px #FFF,
+            1439px 989px #FFF, 1920px 1613px #FFF, 1062px 1754px #FFF, 1120px 1100px #FFF, 1140px 1095px #FFF, 374px 1808px #FFF, 1998px 1269px #FFF, 1086px 1363px #FFF, 1337px 1931px #FFF, 1399px 1485px #FFF, 929px 1304px #FFF, 1907px 1326px #FFF, 1737px 1330px #FFF, 1051px 1351px #FFF, 1707px 1203px #FFF, 1246px 1485px #FFF, 1192px 1331px #FFF, 1319px 1627px #FFF, 1089px 934px #FFF, 1254px 1793px #FFF, 1608px 641px #FFF, 1342px 1590px #FFF, 1729px 1433px #FFF, 1889px 1454px #FFF, 1068px 1051px #FFF, 1639px 1559px #FFF, 1607px 1847px #FFF, 1938px 1573px #FFF, 1639px 1327px #FFF, 1986px 1160px #FFF, 1842px 1511px #FFF, 1459px 1104px #FFF, 1396px 1454px #FFF, 1673px 1910px #FFF, 1091px 1262px #FFF, 1613px 1232px #FFF, 1182px 1478px #FFF, 1845px 1839px #FFF, 1303px 1827px #FFF, 1215px 1904px #FFF;
+            animation: animateStars 100s linear infinite;
+        }
+
+        #stars3 {
+            width: 3px;
+            height: 3px;
+            background: transparent;
+            box-shadow: 387px 1878px #FFF, 760px 1564px #FFF, 1487px 999px #FFF, 948px 1828px #FFF, 1977px 1001px #FFF, 1284px 1963px #FFF, 656px 284px #FFF, 1268px 1635px #FFF, 1820px 598px #FFF, 642px 1900px #FFF, 296px 57px #FFF, 921px 1620px #FFF, 1626px 1830px #FFF, 1663px 1314px #FFF, 1639px 1259px #FFF, 1555px 1320px #FFF, 86px 1194px #FFF, 1872px 812px #FFF, 1928px 1335px #FFF, 1313px 1332px #FFF,
+            387px 878px #FFF, 760px 564px #FFF, 1487px 1999px #FFF, 948px 828px #FFF, 1977px 2001px #FFF, 1284px 963px #FFF, 656px 1284px #FFF, 1268px 635px #FFF, 1820px 1598px #FFF, 642px 900px #FFF, 296px 2057px #FFF, 921px 620px #FFF, 1626px 830px #FFF, 1663px 314px #FFF, 1639px 259px #FFF, 1555px 320px #FFF, 86px 1194px #FFF, 1872px 1812px #FFF, 1928px 335px #FFF, 1313px 332px #FFF,
+            387px 1878px #FFF, 760px 1564px #FFF, 1487px 999px #FFF, 948px 1828px #FFF, 1977px 1001px #FFF, 1284px 1963px #FFF, 656px 284px #FFF, 1268px 1635px #FFF, 1820px 598px #FFF, 642px 1900px #FFF, 296px 57px #FFF, 921px 1620px #FFF, 1626px 1830px #FFF, 1663px 1314px #FFF, 1639px 1259px #FFF, 1555px 1320px #FFF, 86px 1194px #FFF, 1872px 812px #FFF, 1928px 1335px #FFF, 1313px 1332px #FFF;
+            animation: animateStars 150s linear infinite;
+        }
+
+        @keyframes animateStars {
+            from {
+                transform: translateY(0px);
+            }
+            to {
+                transform: translateY(-2000px);
+            }
+        }
+
+        /* Header Styles */
+        header {
+            background-color: rgba(10, 14, 23, 0.8);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #f5f5f5;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-links a i {
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover i {
+            transform: translateY(-2px);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #3498db;
+            box-shadow: 0 0 10px rgba(52, 152, 219, 0.5);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Main Section Styles */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 20px;
+            margin-top: 20px;
+            background: radial-gradient(circle at center, rgba(25, 35, 60, 0.8) 0%, rgba(10, 14, 23, 0.8) 70%);
+        }
+
+        .profile-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 1000px;
+            padding: 40px;
+            margin: 0 auto;
+        }
+
+        .profile-content {
+            text-align: center;
+            max-width: 800px;
+        }
+
+        .profile-content h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+            color: #f5f5f5;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        .profile-content h3 {
+            font-size: 24px;
+            color: #3498db;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(52, 152, 219, 0.5);
+        }
+
+        .divider {
+            width: 280px;
+            height: 3px;
+            background-color: #3498db;
+            margin: 0 auto 20px;
+            box-shadow: 0 0 10px rgba(52, 152, 219, 0.5);
+        }
+
+        .profile-content p {
+            font-size: 18px;
+            color: #cbd5e1;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn.primary {
+            background-color: #3498db;
+            color: #fff;
+            box-shadow: 0 0 15px rgba(52, 152, 219, 0.5);
+        }
+
+        .btn.primary:hover {
+            background-color: #2980b9;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(52, 152, 219, 0.7);
+        }
+
+        .btn.secondary {
+            background-color: transparent;
+            color: #f5f5f5;
+            border: 2px solid #3498db;
+            box-shadow: 0 0 15px rgba(52, 152, 219, 0.3);
+        }
+
+        .btn.secondary:hover {
+            background-color: rgba(52, 152, 219, 0.1);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(52, 152, 219, 0.5);
+        }
+
+        /* Content Section Styles */
+        .content-section {
+            padding: 100px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .content-section h2 {
+            font-size: 36px;
+            margin-bottom: 50px;
+            color: #f5f5f5;
+            text-align: left;
+            position: relative;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        .content-section h2::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 3px;
+            background-color: #3498db;
+            bottom: -15px;
+            left: 0;
+            transform: none;
+            box-shadow: 0 0 10px rgba(52, 152, 219, 0.5);
+        }
+
+        /* List Styles */
+        .content-list {
+            list-style-type: none;
+        }
+
+        .content-list li {
+            margin-bottom: 30px;
+            background-color: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(5px);
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+        }
+
+        .content-list li:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Company Logo Styles */
+        .company-logo {
+            flex: 0 0 100px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 20px;
+            background-color: rgba(10, 14, 23, 0.5);
+        }
+
+        .company-logo img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .list-content-wrapper {
+            flex: 1;
+        }
+
+        /* For sections without logos (About and Projects) */
+        #projects .content-list li {
+            display: block;
+        }
+
+        .list-header {
+            padding: 20px;
+            background-color: rgba(10, 14, 23, 0.5);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            font-weight: 600;
+            color: #3498db;
+            font-size: 18px;
+            text-shadow: 0 0 10px rgba(52, 152, 219, 0.3);
+        }
+
+        .sub-header {
+            padding: 15px 20px;
+            background-color: rgba(10, 14, 23, 0.3);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            font-weight: 500;
+            color: #3498db;
+            font-size: 16px;
+            text-shadow: 0 0 10px rgba(52, 152, 219, 0.2);
+        }
+
+        #projects .list-header::before {
+            color: #3498db;
+            font-size: 24px;
+            margin-right: 10px;
+            text-shadow: 0 0 10px rgba(52, 152, 219, 0.5);
+        }
+
+        .list-content {
+            padding: 20px;
+            color: #cbd5e1;
+            line-height: 1.7;
+        }
+
+        .list-content ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin: 0;
+        }
+
+        .list-content li {
+            margin-bottom: 10px;
+            background: none;
+            box-shadow: none;
+            border: none;
+            padding: 0;
+            display: list-item;
+        }
+
+        .list-content li:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Override the main content-list styles for items inside list-content */
+        .list-content .content-list li {
+            transform: none;
+            box-shadow: none;
+            border: none;
+            background: none;
+            margin-bottom: 10px;
+        }
+
+        .list-content .content-list li:hover {
+            transform: none;
+            box-shadow: none;
+        }
+
+        #projects .list-content li {
+            list-style: none;
+            margin-left: 0;
+            padding-left: 0;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: rgba(10, 14, 23, 0.9);
+            color: #cbd5e1;
+            text-align: center;
+            padding: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .profile-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .divider {
+                margin: 0 auto 20px;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 15px;
+            }
+
+            .profile-content h1 {
+                font-size: 36px;
+            }
+
+            .profile-content h3 {
+                font-size: 20px;
+            }
+
+            .profile-content p {
+                font-size: 16px;
+            }
+
+            .content-section h2 {
+                font-size: 28px;
+            }
+
+            .content-list li {
+                flex-direction: column;
+            }
+
+            .company-logo {
+                padding: 15px;
+                flex: 0 0 auto;
+            }
+        }
+
+        @media (max-width: 576px) {
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .btn {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Parallax Stars Background -->
+    <div class="stars-container">
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
+    </div>
+
+    <!-- Header with Navigation -->
+    <header>
+        <nav>
+            <div class="nav-links">
+                <a href="#resume"><i class="fas fa-file-alt"></i>Resume</a>
+                <a href="#education"><i class="fas fa-graduation-cap"></i>Education</a>
+                <a href="#projects"><i class="fas fa-code"></i>Projects</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Hero Section -->
+    <section class="hero">
+        <div class="profile-container">
+            <div class="profile-content">
+                <h1>Nathan Moeller</h1>
+                <h3>Senior Software Engineer</h3>
+                <div class="divider"></div>
+                <p>I am a software engineer currently working at Splunk in San Jose, CA.</p>
+                <div class="hero-buttons">
+                    <a href="mailto:n.moeller18@gmail.com" class="btn primary">Contact Me</a>
+                    <a href="#resume" class="btn secondary">View Resume</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section id="resume" class="content-section">
+        <h2>Resume</h2>
+        <ul class="content-list">
+            <li>
+                <div class="company-logo">
+                    <img src="images/splunk.jpg" alt="Splunk Logo">
+                </div>
+                <div class="list-content-wrapper">
+                    <div class="list-header">Splunk (2020 - Present)</div>
+                    <div class="sub-header">Senior Software Engineer (May 2024 - Present)</div>
+                    <div class="list-content">
+                        • Currently working on the Ingest Processing team, which develops and maintains services that process all 
+                        datapoints within Splunk Observability. These services are responsible for parsing raw metric data, fetching 
+                        associated MTS data (Metric Time Series), matching metric rules and routing to the correct storage layer. These 
+                        services operate at a massive scale, processing billions of datapoints per minute.<br>
+                        • Leading development of a project to automatically route metrics to a cheaper storage layer, saving customers 10x on storage costs for their unused metrics.
+                    </div>
+                    <div class="sub-header">Software Engineer (Oct 2020- May 2024)</div>
+                    <div class="list-content">
+                        • Developed Metrics Pipeline Management feature within Splunk Observability. This application on allows customers 
+                        to create custom metric pipelines to filter, aggregate, and route their data. This work consisted of creating and 
+                        implementing a database model for storing metric rules, gRPC API for internal services to create and update 
+                        metric rules, a REST API for external users to interact with metric rules, and finally a UI for a way to interact with 
+                        metric rules. 
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="company-logo">
+                    <img src="images/ibm_logo.png" alt="IBM Logo">
+                </div>
+                <div class="list-content-wrapper">
+                    <div class="list-header">IBM (2017-2020)</div>
+                    <div class="sub-header">Advisory Software Engineer (April 2019 - Oct 2020)</div>
+                    <div class="list-content">
+                        • Worked on <a href="https://www.ibm.com/products/cloud-pak-for-data" target="_blank">IBM Cloud Pak for Data</a>, an AI platform for businesses to collect, organize, and analyze data.<br>
+                        • Developed core platorm features including service provisioning, service life cycle management, and service 
+                        extensions. This included an extensible UI framework for consuming services to create a functional service 
+                        provisioning workflow by only providing a configuration schema. This framework is used by over 50 internal and 
+                        external services provided by Cloud Pak for Data. Stack included React, GoLang, CockroachDB, and Kubernetes.
+                    </div>
+                    <div class="sub-header">Staff Software Engineer (Feb 2017- April 2019)</div>
+                    <div class="list-content">
+                        • Worked on a desktop application, <a href="https://www.ibm.com/products/spss-statistics" target="_blank">SPSS Statistics</a>. Re-wrote the entire front end experience using React and 
+                        Electron. Decoupled backend statistics engine from frontend by writing a java REST API middlelayer.
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="company-logo">
+                    <img src="images/umn_logo.jpg" alt="University of Minnesota Logo">
+                </div>
+                <div class="list-content-wrapper">
+                    <div class="list-header">Univerisity of Minnesota - Health Informatics (2015 - 2016)</div>
+                    <div class="sub-header">Research Assistent (Feb 2015 - May 2016)</div>
+                    <div class="list-content">
+                        • While receiving my graduate degree at the University of Minnesota, I worked as a research assistent to Professor Genevieve Melton-Meaux. 
+                        I worked on a team of graduate students and surgeons to develop machine learning methods to detect post-surgical complications. 
+                        My main responsibilities were to work with surgeons to understand what data we could use to predict a post-surgical complication (Ex: UTI), and then use this information to extract, clean, and format the EHR data to use for machine learning purposes. 
+                        I also worked on developing the penalized regression algorithm we used to predict the surgical complication. <br>
+                        • Publication: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5333333/" target="_blank">Accelerating Chart Review Using Automated Methods on Electronic Health Record Data for Postoperative Complications</a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="content-section">
+        <h2>Education</h2>
+        <ul class="content-list">
+            <li>
+                <div class="company-logo">
+                    <img src="images/umn_logo.jpg" alt="University of Minnesota Logo">
+                </div>
+                <div class="list-content-wrapper">
+                    <div class="list-header">University of Minnesota - Twin Cities</div>
+                    <div class="sub-header">Masters of Computer Science (May 2016)</div>
+                    <div class="list-content">
+                        While in graudate school I took a variety of classes including Artificial Intelligence, machine learning, robotics, and experimental games
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="company-logo">
+                    <img src="images/uw_logo.png" alt="University of Wisconsin Logo">
+                </div>
+                <div class="list-content-wrapper">
+                    <div class="list-header">University of Wisconsin - Madison</div>
+                    <div class="sub-header">Bachelor's of Computer Science (May 2014)</div>
+                    <div class="list-content">
+                        While in undergraduate school I took many classes to grow my knowledge and interest in computer science. I really enjoyed taking classes like algorithms, graphics, and database systems.
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="content-section">
+        <h2>Projects</h2>
+        <ul class="content-list">
+            <li>
+                <div class="list-header"><a href="https://geyser.fund/project/bitcoinblackjack" target="_blank">Bitcoin Blackjack</a></div>
+                <div class="list-content">
+                    Created a free to play Android blackjack game that pays players in real Bitcoin. I developed this game as a project for the <a href="https://geyser.fund/grants/4">Geyser Gaming Grant</a>. 
+                </div>
+            </li>
+            <li>
+                <div class="list-header">Bounty Streamer</div>
+                <div class="list-content">
+                    Bounty Streamer is a web application designed for twitch streaming where viewers can incentivize streamers to complete in game challenges for real money.
+                    We developed this project as a team a three and used a Java Spring backend, React frontend and PayPal/Twitch/AWS REST APIs and services.
+                </div>
+            </li>
+            <li>
+                <div class="list-header">Word Affects</div>
+                <div class="list-content">
+                    Word Affects is a twitter seniment analysis web application that we developed for the UW Madison 2014 CS NEST competition.
+                    For this project we won 3rd place for implementing a Naive Bayes classifier and a web interface to see a real time classification of tweets.
+                </div>
+            </li>
+        </ul>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 John Doe. All rights reserved.</p>
+    </footer>
+</body>
+</html>

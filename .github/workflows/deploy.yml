@@ -14,14 +14,17 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Deploy via pure SFTP
-        uses: elgohr/sftp-action@v0.6.0
+      - name: Deploy via SFTP
+        uses: ssh-actions/sftp-upload@v2.2.0
         with:
           host: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           port: 22
-          localPath: .
-          remotePath: "/home/nathanmoeller/public_html"
-          options: "-r"
-          exclude: ".git* .github*"
+          localDir: .
+          remoteDir: "/home/nathanmoeller/public_html"
+          exclude: |
+            .git/
+            .github/
+            **/.git*
+            **/.*/**

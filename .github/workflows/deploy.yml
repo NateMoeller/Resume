@@ -1,0 +1,30 @@
+name: SFTP Deploy
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  ftp-deploy:
+    name: Upload files to FTP server
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: FTP Deploy
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: sftp
+          local-dir: ./
+          server-dir: /home/nathanmoeller/public_html
+          exclude:
+            |
+              .git*
+              .github*
+              **/.*/**  

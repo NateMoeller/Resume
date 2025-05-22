@@ -14,17 +14,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: FTP Deploy
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      - name: SFTP Deploy
+        uses: appleboy/scp-action@v0.1.7
         with:
-          server: ${{ secrets.FTP_HOST }}
+          host: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          protocol: sftp
-          local-dir: ./
-          server-dir: /home/nathanmoeller/public_html
-          exclude:
-            |
-              .git*
-              .github*
-              **/.*/**  
+          port: 22
+          source: "./**/*"
+          target: "/home/nathanmoeller/public_html"
+          strip_components: 0

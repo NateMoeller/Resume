@@ -28,4 +28,3 @@ jobs:
             images/
           target: "/home/nathanmoeller/public_html"
           strip_components: 0
-          args: "-T"

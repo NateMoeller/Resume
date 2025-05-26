@@ -28,4 +28,4 @@ jobs:
             images/
           target: "/home/nathanmoeller/public_html"
           strip_components: 0
-          scp-option: "-o StrictHostKeyChecking=no -T"
+          args: "-T

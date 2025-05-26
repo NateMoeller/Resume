@@ -27,4 +27,6 @@ jobs:
             script.js
             images/
           target: "/home/nathanmoeller/public_html"
+          overwrite: true
+          debug: true
           strip_components: 0

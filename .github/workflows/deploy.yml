@@ -31,6 +31,11 @@ jobs:
         run: |
           # Using lftp mirror to upload all files except hidden
           lftp -u "$USER","$PASS" -p "$PORT" sftp://$HOST <<EOF
-            mirror -R --exclude-glob .git* --exclude-glob .github --exclude-glob .* ./ /home/nathanmoeller/public_html/
+            set sftp:auto-confirm yes
+            cd /home/nathanmoeller/public_html/
+            put -O . index.html
+            put -O . styles.css
+            put -O . script.js
+            mirror -R ./images images
             quit
           EOF

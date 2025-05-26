@@ -14,19 +14,18 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Show working directory and contents
-        run: |
-          echo "Current directory: $(pwd)"
-          ls -lah
+      - name: Install lftp
+        run: sudo apt-get update && sudo apt-get install -y lftp
 
-      - name: SFTP Deploy
-        uses: appleboy/scp-action@v0.1.7
-        with:
-          host: ${{ secrets.FTP_HOST }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          port: 22
-          source: "./*"
-          target: "/home/nathanmoeller/public_html"
-          overwrite: true
-          debug: true
+      - name: Upload files via SFTP with lftp
+        env:
+          HOST: ${{ secrets.FTP_HOST }}
+          USER: ${{ secrets.FTP_USERNAME }}
+          PASS: ${{ secrets.FTP_PASSWORD }}
+          PORT: '22'
+        run: |
+          # Using lftp mirror to upload all files except hidden
+          lftp -u "$USER","$PASS" -p "$PORT" sftp://$HOST <<EOF
+            mirror -R --exclude-glob .git* --exclude-glob .github --exclude-glob .* ./ /home/nathanmoeller/public_html/
+            quit
+          EOF
